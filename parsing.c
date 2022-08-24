@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:46:43 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/24 16:04:50 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/24 16:27:01 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,38 @@
 #include <stdlib.h>
 #include <stdio.h> //parsing.c 지워!
 
-static char	*get_color(char *str)
+static int	get_color(char *str)
 {
 	char	*ret;
+	int		i;
+	int		j;
+	int		num;
+	int		hex;
 
-	ret = ft_strcpy(ft_strnstr(str, "0x", ft_strlen(str)));
-	return (ret);
+	ret = ft_strnstr(str, "0x", ft_strlen(str));
+	if (!ret)
+		return (0);
+	i = ft_strlen(ret) - 1;
+	num = 0;
+	hex = 1;
+	while (i > 1 && ret[i] != 'x')
+	{
+		j = 0;
+		while (j < 16 && ret[i] != "0123456789ABCDEF"[j])
+			++j;
+		num = num + j * hex;
+		hex *= 16;
+		--i;
+	}
+	return (num);
 }
 
-static char	**to_color(char **words, int size)
+static int	*to_color(char **words, int size)
 {
-	char	**ret;
+	int		*ret;
 	int		idx;
 
-	ret = (char **)malloc(size * sizeof(char *));
+	ret = (int *)ft_calloc(size, sizeof(int));
 	if (!ret)
 		error();
 	idx = -1;
@@ -62,7 +80,7 @@ static void	spilt_trans(int fd, t_map *map)
 	map->coordn = (int **)malloc(map->row * sizeof(int *));
 	if (!map->coordn)
 		error();
-	map->color = (char ***)malloc(map->row * sizeof(char **));
+	map->color = (int **)malloc(map->row * sizeof(int *));
 	if (!map->color)
 		error();
 	idx = -1;

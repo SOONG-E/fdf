@@ -15,12 +15,7 @@ void printmap(t_map *map)
 	for (int i=0 ; i < map->row; i++)
 	{
 		for (int j=0; j < map->col; j++)
-		{
-			if (map->color[i][j])
-				printf("%s ", map->color[i][j]);
-			else
-				printf("%d ", 0);
-		}
+			printf("%d ", map->color[i][j]);
 		printf("\n");
 	}
 }
