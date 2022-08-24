@@ -6,13 +6,13 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 19:49:19 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/12 13:56:57 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/24 15:11:17 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_strlen(char *str, int target)
+int	ft_strlen_gnl(char *str, int target)
 {
 	int	len;
 

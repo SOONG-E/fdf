@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:26:19 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/22 20:22:12 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/24 14:34:16 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char	*make_str(char *s, int *start, int *end)
 	return (ret);
 }
 
-static void	free_child(char **ret, int idx)
+void	free_child(char **ret, int idx)
 {
 	while (--idx >= 0)
 		free(ret[idx]);
