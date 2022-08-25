@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   manage_window.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/25 14:49:26 by yujelee          ###   ########seoul.kr  */
+/*   Created: 2022/08/24 16:33:04 by yujelee           #+#    #+#             */
+/*   Updated: 2022/08/25 15:41:42 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <stdio.h> //utils.c
+#include <mlx.h>
 
-int	ft_strlen(char *str)
-{
-	int	count;
+void	*init_window(void)
+{	
+	void	*mlx;
 
-	count = 0;
-	while (str[count])
-		++count;
-	return (count);
-}
-
-int count_line(int fd)
-{
-	int	count;
-
-	count = 0;
-	while (get_next_line(fd))
-		++count;
-	return (count);
-}
-
-int	check_filename(char *name)
-{
-	if (ft_strnstr(name, ".fdf\0", ft_strlen(name)))
-		return (1);
-	return (0);
+	mlx = mlx_init();
+	mlx_loop(mlx);
+	return (mlx);
 }

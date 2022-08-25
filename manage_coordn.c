@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   manage_coordn.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/25 14:49:26 by yujelee          ###   ########seoul.kr  */
+/*   Created: 2022/08/25 15:13:51 by yujelee           #+#    #+#             */
+/*   Updated: 2022/08/25 15:37:27 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h> //utils.c
 
-int	ft_strlen(char *str)
+void	make_coordn(t_map *map)
 {
-	int	count;
+	int	i;
+	int	j;
 
-	count = 0;
-	while (str[count])
-		++count;
-	return (count);
-}
-
-int count_line(int fd)
-{
-	int	count;
-
-	count = 0;
-	while (get_next_line(fd))
-		++count;
-	return (count);
-}
-
-int	check_filename(char *name)
-{
-	if (ft_strnstr(name, ".fdf\0", ft_strlen(name)))
-		return (1);
-	return (0);
+	i = -1;
+	while (++i < map->row)
+	{
+		j = -1;
+		while (++j < map->col)
+		{
+			(map->value[i][j]).x = j;
+			(map->value[i][j]).y = i;
+		}
+	}
 }

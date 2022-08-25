@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:46:43 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/24 16:27:01 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/25 15:46:09 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h> //parsing.c 지워!
 
 static int	get_color(char *str)
 {
@@ -57,17 +56,17 @@ static int	*to_color(char **words, int size)
 	return (ret);
 }
 
-static int	*to_coordn(char **words, int size)
+static t_coor	*to_value(char **words, int size)
 {
-	int		*ret;
+	t_coor		*ret;
 	int		idx;
 
-	ret = (int *)ft_calloc(size, sizeof(int));
+	ret = (t_coor *)ft_calloc(size, sizeof(t_coor));
 	if (!ret)
 		error();
 	idx = -1;
 	while (++idx < size)
-		ret[idx] = ft_atoi(words[idx]);
+		(ret[idx]).z = ft_atoi(words[idx]);
 	return (ret);
 }
 
@@ -77,8 +76,8 @@ static void	spilt_trans(int fd, t_map *map)
 	int		size;
 	char	**splited;
 
-	map->coordn = (int **)malloc(map->row * sizeof(int *));
-	if (!map->coordn)
+	map->value = (t_coor **)malloc(map->row * sizeof(t_coor *));
+	if (!map->value)
 		error();
 	map->color = (int **)malloc(map->row * sizeof(int *));
 	if (!map->color)
@@ -91,12 +90,11 @@ static void	spilt_trans(int fd, t_map *map)
 			map->col = size;
 		else if (map->col != size)
 			error();
-		map->coordn[idx] = to_coordn(splited, size);
+		map->value[idx] = to_value(splited, size);
 		map->color[idx] = to_color(splited, size);
 		free_child(splited, map->col);
 	}
 	printmap(map);
-
 }
 
 void	parsing_file(char *file_name, t_map *map)
@@ -108,4 +106,5 @@ void	parsing_file(char *file_name, t_map *map)
 	close(fd);
 	fd = open(file_name, O_RDONLY);
 	spilt_trans(fd, map);
+	close(fd);
 }

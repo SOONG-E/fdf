@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:26:19 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/24 14:34:16 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/25 14:53:27 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*make_str(char *s, int *start, int *end)
 	ret = (char *)ft_calloc(*end - *start + 1, sizeof(char));
 	if (!ret)
 		return (NULL);
-	while (*start < *end)
+	while (*start < *end && s[*start] != '\n')
 		ret[idx++] = s[(*start)++];
 	*start = *end;
 	return (ret);

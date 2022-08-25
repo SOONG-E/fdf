@@ -6,9 +6,11 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:33:34 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/24 14:19:58 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/25 15:06:36 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fdf.h"
 
 int	ft_atoi(char *str)
 {
@@ -27,6 +29,8 @@ int	ft_atoi(char *str)
 			s = -1;
 		idx++;
 	}
+	if (!(48 <= str[idx] && str[idx] <= 57))
+		error();
 	while (48 <= str[idx] && str[idx] <= 57)
 	{
 		ret = ret * 10 + (str[idx] - 48);
