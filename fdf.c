@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:36:10 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/25 15:13:27 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/25 19:35:20 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,15 @@
 
 void	fdf(t_map *map)
 {
-	init_window();
+	void *mlx;
+	void *win;
+
+	//init_window(&mlx, &win);
+	mlx = mlx_init();
+	win = mlx_new_window (mlx,  1500, 1500, "fdf");
 	make_coordn(map);
+	point_pixel(map, mlx, win);
+	mlx_loop(mlx);
 }
 
 int	main(int ac, char **av)

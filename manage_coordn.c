@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 15:13:51 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/25 15:37:27 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/25 19:34:51 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	make_coordn(t_map *map)
 		j = -1;
 		while (++j < map->col)
 		{
-			(map->value[i][j]).x = j;
-			(map->value[i][j]).y = i;
+			(map->value[i][j]).x = j * 200;
+			(map->value[i][j]).y = i * 200;
 		}
 	}
 }
