@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:46:43 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/25 16:36:58 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/26 11:09:58 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	get_color(char *str)
 
 	ret = ft_strnstr(str, "0x", ft_strlen(str));
 	if (!ret)
-		error();
+		return (0xFFFFFF);
 	i = ft_strlen(ret) - 1;
 	num = 0;
 	hex = 1;
