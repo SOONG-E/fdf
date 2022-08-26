@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:46:43 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/26 11:09:58 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/26 11:43:34 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ static void	spilt_trans(int fd, t_map *map)
 		map->color[idx] = to_color(splited, size);
 		free_child(splited, map->col);
 	}
-	printmap(map);
 }
 
 void	parsing_file(char *file_name, t_map *map)

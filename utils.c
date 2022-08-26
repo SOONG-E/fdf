@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/25 14:49:26 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/26 15:11:46 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,11 @@ int	check_filename(char *name)
 	if (ft_strnstr(name, ".fdf\0", ft_strlen(name)))
 		return (1);
 	return (0);
+}
+
+void	make_scale(t_map *map)
+{
+	map->scale = (map->height / map->row) / 2;
+	if (map->scale > (map->width / map->col) / 2)
+ 		map->scale = (map->width / map->col) / 2;
 }

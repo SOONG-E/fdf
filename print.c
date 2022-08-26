@@ -8,7 +8,7 @@ void printmap(t_map *map)
 	for (int i=0 ; i < map->row; i++)
 	{
 		for (int j=0; j < map->col; j++)
-			printf("%d ", (map->value[i][j]).z);
+			printf("%f ", (map->value[i][j]).z);
 		printf("\n");
 	}
 	printf("* color :\n");
