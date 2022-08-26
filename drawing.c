@@ -6,14 +6,14 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 13:20:04 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/26 20:01:19 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/26 20:54:25 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <mlx.h>
-#include <stdlib.h>
-#include <stdio.h> //drawing.c !!!!!!!!!!!!!
+#include <math.h>
+
 void	drawing_point(t_map *map, t_coor **coor, void *mlx, void *win)
 {
 	int	i;
@@ -26,7 +26,7 @@ void	drawing_point(t_map *map, t_coor **coor, void *mlx, void *win)
 		while (++j < map->col)
 		{
 			if (map->color[i][j])
-				mlx_pixel_put(mlx, win, coor[i][j].x, coor[i][j].y, map->color[i][j]);
+				mlx_pixel_put(mlx, win, coor[i][j].x, coor[i][j].y, coor[i][j].y);
 			else
 				mlx_pixel_put(mlx, win, coor[i][j].x, coor[i][j].y, 0xFFFFFF);
 		}
@@ -35,54 +35,10 @@ void	drawing_point(t_map *map, t_coor **coor, void *mlx, void *win)
 
 void	point_to_point(t_coor one, t_coor two, void *mlx, void *win)
 {
-	double	step[2];
-	double	d[2];
-	double	p;
-	t_coor	coor;
-	
-	if (two.x > one.x)
-		step[0] = 0.01;
+	if (fabs((two.y - one.y) / (two.x - one.x)) > 1)
+		gredient_over(one, two, mlx, win);
 	else
-		step[0] = -0.01;
-	if (two.y > one.y)
-		step[1] = 0.01;
-	else
-		step[1] = -0.01;
-	d[0] = abs((int)(two.x - one.x));
-	d[1] = abs((int)(two.y - one.y));
-	coor = one;
-	if (abs((int)(d[1] / d[0])) > 1)
-	{
-		p = 2 * d[0] - d[1];
-		while (((one.x <= two.x && coor.x <= two.x) || (one.x >= two.x && coor.x >= two.x)) && ((one.y <= two.y && coor.y <= two.y) || (one.y >= two.y && coor.y >= two.y)))
-		{
-			if (p < 0)
-				p += (2 * d[0]);
-			else
-			{
-				coor.x += step[0];
-				p += (2 * (d[0] - d[1]));
-			}
-				coor.y += step[1];
-				mlx_pixel_put(mlx, win, coor.x, coor.y, 0xFFFFFF);
-		}
-	}
-	else
-	{
-		p = 2 * d[1] - d[0];
-		while (((one.x <= two.x && coor.x <= two.x) || (one.x >= two.x && coor.x >= two.x)) && ((one.y <= two.y && coor.y <= two.y) || (one.y >= two.y && coor.y >= two.y)))
-		{
-			if (p < 0)
-				p += (2 * d[1]);
-			else
-			{
-				coor.y += step[1];
-				p += (2 * (d[1] - d[0]));
-			}
-				coor.x += step[0];
-				mlx_pixel_put(mlx, win, coor.x, coor.y, 0xFFFFFF);
-		}
-	}
+		gredient_under(one, two, mlx, win);
 }
 
 void	drawing_line(t_map *map, t_coor **coor, void *mlx, void *win)
