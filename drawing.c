@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 13:20:04 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/26 20:54:25 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/29 21:01:06 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <mlx.h>
 #include <math.h>
 
-void	drawing_point(t_map *map, t_coor **coor, void *mlx, void *win)
+void	drawing_point(t_map *map, t_mlx *mlx)
 {
 	int	i;
 	int	j;
@@ -26,22 +26,24 @@ void	drawing_point(t_map *map, t_coor **coor, void *mlx, void *win)
 		while (++j < map->col)
 		{
 			if (map->color[i][j])
-				mlx_pixel_put(mlx, win, coor[i][j].x, coor[i][j].y, coor[i][j].y);
+				mlx_pixel_put(mlx->mlx, mlx->win, mlx->coor[i][j].x, \
+				mlx->coor[i][j].y, mlx->coor[i][j].y);
 			else
-				mlx_pixel_put(mlx, win, coor[i][j].x, coor[i][j].y, 0xFFFFFF);
+				mlx_pixel_put(mlx->mlx, mlx->win, mlx->coor[i][j].x, \
+				mlx->coor[i][j].y, 0xFFFFFF);
 		}
 	}
 }
 
-void	point_to_point(t_coor one, t_coor two, void *mlx, void *win)
+void	point_to_point(t_coor one, t_coor two, t_mlx *mlx)
 {
 	if (fabs((two.y - one.y) / (two.x - one.x)) > 1)
-		gredient_over(one, two, mlx, win);
+		gredient_over(one, two, mlx->mlx, mlx->win);
 	else
-		gredient_under(one, two, mlx, win);
+		gredient_under(one, two, mlx->mlx, mlx->win);
 }
 
-void	drawing_line(t_map *map, t_coor **coor, void *mlx, void *win)
+void	drawing_line(t_map *map, t_mlx *mlx)
 {
 	int	i;
 	int	j;
@@ -53,19 +55,20 @@ void	drawing_line(t_map *map, t_coor **coor, void *mlx, void *win)
 		while (++j < map->col)
 		{
 			if (i < map->row - 1)
-				point_to_point(coor[i][j], coor[i + 1][j], mlx, win);
+				point_to_point(mlx->coor[i][j], mlx->coor[i + 1][j], mlx);
 			if (j < map->col - 1)
-				point_to_point(coor[i][j], coor[i][j + 1], mlx, win);
+				point_to_point(mlx->coor[i][j], mlx->coor[i][j + 1], mlx);
 		}
 	}
 }
 
-void	drawing(t_map *map, t_coor **coor, void *mlx, void *win)
+void	drawing(t_mlx *mlx)
 {
-	adjust_scale(map, coor);
-	isometric(map, coor);
+	mlx_clear_window(mlx->mlx, mlx->win);
+	adjust_scale(mlx->map, mlx->coor);
+	isometric(mlx->map, mlx->coor);
 	//rotation(map, coor);
-	moving_map(map, coor);
-	drawing_point(map, coor, mlx, win);
-	drawing_line(map, coor, mlx, win);
+	moving_map(mlx->map, mlx->coor);
+	drawing_point(mlx->map, mlx);
+	drawing_line(mlx->map, mlx);
 }

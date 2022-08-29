@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 15:13:51 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/26 20:49:20 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/29 20:18:38 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	rotation(t_map *map, t_coor **coor)
 	int		i;
 	int		j;
 
-	sin_po = sin(map->angle);
-	cos_po = cos(map->angle);
-	sin_na = sin(-(map->angle));
+	sin_po = sin(map->angle_z);
+	cos_po = cos(map->angle_z);
+	sin_na = sin(-(map->angle_z));
 	i = -1;
 	while (++i < map->row)
 	{
@@ -51,8 +51,8 @@ void	isometric(t_map *map, t_coor **coor)
 		j = -1;
 		while (++j < map->col)
 		{
-			pre_x = (coor[i][j].x - coor[i][j].y) * cos(map->angle);
-			pre_y = (coor[i][j].x + coor[i][j].y) * sin(map->angle) - \
+			pre_x = (coor[i][j].x - coor[i][j].y) * cos(map->angle_z);
+			pre_y = (coor[i][j].x + coor[i][j].y) * sin(map->angle_z) - \
 			coor[i][j].z;
 			coor[i][j].x = pre_x;
 			coor[i][j].y = pre_y;
@@ -62,21 +62,22 @@ void	isometric(t_map *map, t_coor **coor)
 
 void	moving_map(t_map *map, t_coor **coor)
 {
-	double	x;
-	double	y;
 	int	i;
 	int	j;
 
-	x = (map->width / 2) - (coor[map->row / 2][map->col / 2].x);
-	y = (map->height / 2) - (coor[map->row / 2][map->col / 2].y);
+	if (map->moving_x < 0)
+	{
+		map->moving_x = (map->width / 2) - (coor[map->row / 2][map->col / 2].x);
+		map->moving_y = (map->height / 2) - (coor[map->row / 2][map->col / 2].y);
+	}
 	i = -1;
 	while (++i < map->row)
 	{
 		j = -1;
 		while (++j < map->col)
 		{
-			(coor[i][j]).x += x;
-			(coor[i][j]).y += y;
+			(coor[i][j]).x += map->moving_x;
+			(coor[i][j]).y += map->moving_y;
 		}
 	}
 }

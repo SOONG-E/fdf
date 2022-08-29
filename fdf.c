@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:36:10 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/26 20:20:11 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/29 19:43:18 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 
 void	fdf(t_map *map)
 {
-	void 	*mlx;
-	void 	*win;
-	t_coor	**coor;
+	t_mlx	mlx;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, map->width, map->height, "fdf");
-	coor = init_coordn(map);
-	drawing(map, coor, mlx, win);
-	point_pixel(map, mlx, win);
-	mlx_loop(mlx);
+	mlx.mlx = mlx_init();
+	mlx.win = mlx_new_window(mlx.mlx, map->width, map->height, "fdf");
+	mlx.coor = init_coordn(map);
+	mlx.map = map;
+	drawing(&mlx);
+	mlx_hook(mlx.win, KEY_PRESS, 0, hooks, &mlx);
+	//mlx_hook(mlx.win, DESTROY_NOTIFY, 0, close_window, &mlx);
+	mlx_loop(mlx.mlx);
 }
 
 int	main(int ac, char **av)
@@ -34,9 +34,9 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (-1);
-	map = init_map(&map, 1500, 1500);
 	if (!check_filename(av[1]))
 		return (-1);
+	map = init_map(&map, 1500, 1500);
 	parsing_file(av[1], &map);
 	fdf(&map);
 

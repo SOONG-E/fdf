@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_map.c                                       :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 20:11:38 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/29 19:54:21 by yujelee          ###   ########seoul.kr  */
+/*   Created: 2022/08/29 16:29:13 by yujelee           #+#    #+#             */
+/*   Updated: 2022/08/29 20:11:38 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdlib.h>
-#include <math.h>
+#include <mlx.h>
+#include <stdio.h> //hooks.c
 
-t_map	init_map(t_map *map, int width, int height)
+int	hooks(int key, t_mlx *mlx)
 {
-	(*map).row = -1;
-	(*map).col = -1;
-	(*map).width = width;
-	(*map).height = height;
-	(*map).moving_x = -1;
-	(*map).moving_y = -1;
-	(*map).scale = -1.0;
-	(*map).angle_x = (double)(M_PI / 6);
-	(*map).angle_y = (double)(M_PI / 6);
-	(*map).angle_z = (double)(M_PI / 6);
-	(*map).value = NULL;
-	(*map).color = NULL;
-	return (*map);
+	if ((KEY_A <= key && key <= KEY_D) || (KEY_Q <= key && key <= KEY_E))
+		change_angle(key, mlx);
+	else if (KEY_LEFT <= key && key <= KEY_UP)
+		moving_hook(key, mlx);
+	else if (key == KEY_ESC)
+		close_window(mlx);
+	else if (key == KEY_PLUS || key == KEY_MINUS)
+		change_scale(key, mlx);
+	drawing(mlx);
+	return (0);
 }
