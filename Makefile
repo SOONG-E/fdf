@@ -6,7 +6,7 @@
 #    By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/25 11:14:04 by yujelee           #+#    #+#              #
-#    Updated: 2022/08/25 16:02:52 by yujelee          ###   ########seoul.kr   #
+#    Updated: 2022/08/29 20:10:41 by yujelee          ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,20 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = 	control_error.c		\
 		fdf.c				\
-		ft_atoi.c			\
-		ft_calloc.c			\
-		ft_split.c			\
-		ft_strs.c			\
-		get_next_line.c		\
-		get_next_line_utils.c	\
+		ft/ft_atoi.c		\
+		ft/ft_calloc.c		\
+		ft/ft_split.c		\
+		ft/ft_strs.c		\
+		ft/get_next_line.c		\
+		ft/get_next_line_utils.c	\
 		manage_map.c		\
-		manage_window.c		\
 		manage_coordn.c		\
 		parsing.c			\
-		print.c				\
-		utils.c
-		#print  ㅈㅣ우기 stdio.h Makefile
-
+		drawing.c			\
+		drawing_utils.c		\
+		utils.c				\
+		hooks.c				\
+		hook_utils.c
 
 NAME = fdf
 
