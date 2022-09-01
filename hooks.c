@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 16:29:13 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/29 20:11:38 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 17:00:05 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	hooks(int key, t_mlx *mlx)
 		close_window(mlx);
 	else if (key == KEY_PLUS || key == KEY_MINUS)
 		change_scale(key, mlx);
+	reinit_coor(mlx);
 	drawing(mlx);
 	return (0);
 }
