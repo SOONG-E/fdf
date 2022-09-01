@@ -6,11 +6,11 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 13:20:04 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 19:06:01 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 19:32:58 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 #include <mlx.h>
 #include <math.h>
 
@@ -45,6 +45,7 @@ void	drawing(t_mlx *mlx)
 {
 	mlx_clear_window(mlx->mlx, mlx->win);
 	adjust_scale(mlx->map, mlx->coor);
+	rotation(mlx->map, mlx->coor);
 	isometric(mlx->map, mlx->coor);
 	moving_map(mlx->map, mlx->coor);
 	drawing_line(mlx->map, mlx);

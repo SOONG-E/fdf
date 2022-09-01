@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   fdf_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:36:10 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 19:09:08 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 18:57:06 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include "fdf.h"
-#include <stdio.h> //fdf.c 지우기!!!!!!!!!!
+#include "fdf_bonus.h"
+#include <stdio.h> //fdfbonus.c 지우기!!!!!!!!!!
 
 void	fdf(t_map *map)
 {
@@ -24,7 +24,7 @@ void	fdf(t_map *map)
 	mlx.map = map;
 	drawing(&mlx);
 	mlx_hook(mlx.win, KEY_PRESS, 0, hooks, &mlx);
-	mlx_hook(mlx.win, DESTROY_NOTIFY, 0, close_window, &mlx);
+	//mlx_hook(mlx.win, DESTROY_NOTIFY, 0, close_window, &mlx);
 	mlx_loop(mlx.mlx);
 }
 

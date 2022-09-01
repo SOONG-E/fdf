@@ -6,11 +6,11 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:23 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 18:57:39 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 19:00:04 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 #include <mlx.h>
 #include <math.h>
 

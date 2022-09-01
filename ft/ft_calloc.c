@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_map.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 20:11:38 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 19:06:22 by yujelee          ###   ########seoul.kr  */
+/*   Created: 2022/08/22 19:27:21 by yujelee           #+#    #+#             */
+/*   Updated: 2022/08/26 11:47:49 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
 #include <stdlib.h>
-#include <math.h>
 
-t_map	init_map(t_map *map, int width, int height)
+static void	*ft_memset(void *b, int c, int len)
 {
-	(*map).row = -1;
-	(*map).col = -1;
-	(*map).width = width;
-	(*map).height = height;
-	(*map).moving_x = -1;
-	(*map).moving_y = -1;
-	(*map).scale = -1.0;
-	(*map).angle = (double)(M_PI / 6);
-	(*map).value = NULL;
-	(*map).color = NULL;
-	return (*map);
+	int	count;
+
+	count = 0;
+	while (count < len)
+	{
+		((unsigned char *)b)[count++] = c;
+	}
+	return (b);
+}
+
+void	*ft_calloc(int count, int size)
+{
+	unsigned char	*ret;
+
+	ret = (unsigned char *)malloc(count * size);
+	if (!ret)
+		return (NULL);
+	ret = ft_memset(ret, 0, count * size);
+	return ((void *)ret);
 }

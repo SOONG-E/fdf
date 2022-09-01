@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_map.c                                       :+:      :+:    :+:   */
+/*   control_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 20:11:38 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 19:06:22 by yujelee          ###   ########seoul.kr  */
+/*   Created: 2022/08/22 19:50:31 by yujelee           #+#    #+#             */
+/*   Updated: 2022/08/22 19:50:33 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <unistd.h>
 #include <stdlib.h>
-#include <math.h>
 
-t_map	init_map(t_map *map, int width, int height)
+void	error(void)
 {
-	(*map).row = -1;
-	(*map).col = -1;
-	(*map).width = width;
-	(*map).height = height;
-	(*map).moving_x = -1;
-	(*map).moving_y = -1;
-	(*map).scale = -1.0;
-	(*map).angle = (double)(M_PI / 6);
-	(*map).value = NULL;
-	(*map).color = NULL;
-	return (*map);
+	write(2, "Error\n", 6);
+	exit(1);
 }
