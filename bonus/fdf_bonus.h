@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:56:39 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 19:11:27 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 21:30:25 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,22 @@
 #define	KEY_PLUS	24
 #define	KEY_MINUS	27
 
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_img;
+
 typedef struct s_mlx
 {
 	void			*mlx;
 	void			*win;
 	struct s_map	*map;
 	struct s_coor	**coor;
+	struct s_img	img;
 }	t_mlx;
 
 typedef struct s_coor
@@ -80,9 +90,10 @@ void	make_coordn(t_map *map);
 
 t_map	init_map(t_map *map, int width, int height);
 void	init_window(void **mlx, void **win);
-void	point_pixel(t_map *map, t_mlx *mlx);
 
 void	drawing(t_mlx *mlx);
+void	clear_image(t_mlx *mlx);
+void	put_pixel(t_mlx	*mlx, int x, int y, int color);
 
 t_coor	**init_coordn(t_map *map);
 void	rotation(t_map *map, t_coor **coor);
@@ -90,8 +101,8 @@ void	isometric(t_map *map, t_coor **coor);
 void	moving_map(t_map *map, t_coor **coor);
 void	adjust_scale(t_map *map, t_coor **coor);
 
-void	gredient_over(t_coor one, t_coor two, void *mlx, void *win);
-void	gredient_under(t_coor one, t_coor two, void *mlx, void *win);
+void	gredient_over(t_coor one, t_coor two, t_mlx *mlx);
+void	gredient_under(t_coor one, t_coor two, t_mlx *mlx);
 
 void	parsing_file(char *file_name, t_map *map);
 

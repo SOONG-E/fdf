@@ -6,13 +6,14 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:23 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 18:57:39 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 21:23:13 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <mlx.h>
 #include <math.h>
+#include <stdio.h>
 
 int	cal_rgb(t_coor coor, t_coor one, t_coor two, char c)
 {
@@ -41,7 +42,7 @@ int	make_color(t_coor coor, t_coor one, t_coor two)
 	return (temp);
 }
 
-void	gredient_over(t_coor one, t_coor two, void *mlx, void *win)
+void	gredient_over(t_coor one, t_coor two, t_mlx	*mlx)
 {
 	double	step[2];
 	double	d[2];
@@ -66,11 +67,11 @@ void	gredient_over(t_coor one, t_coor two, void *mlx, void *win)
 		}
 			coor.y += step[1];
 			coor.color = make_color(coor, one, two);
-			mlx_pixel_put(mlx, win, coor.x, coor.y, coor.color);
+			put_pixel(mlx, coor.x, coor.y, coor.color);
 	}
 }
 
-void	gredient_under(t_coor one, t_coor two, void *mlx, void *win)
+void	gredient_under(t_coor one, t_coor two, t_mlx *mlx)
 {
 	double	step[2];
 	double	d[2];
@@ -95,6 +96,16 @@ void	gredient_under(t_coor one, t_coor two, void *mlx, void *win)
 		}
 			coor.x += step[0];
 			coor.color = make_color(coor, one, two);
-			mlx_pixel_put(mlx, win, coor.x, coor.y, coor.color);
+			put_pixel(mlx, coor.x, coor.y, coor.color);
 	}
+}
+
+void	put_pixel(t_mlx	*mlx, int x, int y, int color)
+{
+	char    *pixel;
+
+	if (x >= mlx->map->width || y >= mlx->map->height)
+		return ;
+    pixel = mlx->img.addr + (y * (mlx->img.line_len) + x * ((mlx->img.bpp) / 8));
+	*(int *)pixel = color;
 }

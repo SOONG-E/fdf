@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/26 20:22:33 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 20:28:42 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	check_filename(char *name)
 
 void	make_scale(t_map *map)
 {
-	map->scale = (map->height / map->row) / 2;
-	if (map->scale > (map->width / map->col) / 2)
- 		map->scale = (map->width / map->col) / 2;
+	map->scale = (map->height / map->row) / 3;
+	if (map->scale > (map->width / map->col) / 3)
+ 		map->scale = (map->width / map->col) / 3;
 }

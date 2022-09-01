@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:36:10 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 18:57:06 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 20:22:34 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ void	fdf(t_map *map)
 	mlx.win = mlx_new_window(mlx.mlx, map->width, map->height, "fdf");
 	mlx.coor = init_coordn(map);
 	mlx.map = map;
+	mlx.img.mlx_img = mlx_new_image(mlx.mlx, map->width, map->height);
+	mlx.img.addr = mlx_get_data_addr(mlx.img.mlx_img, &(mlx.img.bpp), &(mlx.img.line_len), &(mlx.img.endian));
 	drawing(&mlx);
 	mlx_hook(mlx.win, KEY_PRESS, 0, hooks, &mlx);
-	//mlx_hook(mlx.win, DESTROY_NOTIFY, 0, close_window, &mlx);
+	mlx_hook(mlx.win, DESTROY_NOTIFY, 0, close_window, &mlx);
 	mlx_loop(mlx.mlx);
 }
 

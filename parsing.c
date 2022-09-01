@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:46:43 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/26 11:43:34 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 21:05:27 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h> //parsing.c
 
 static int	get_color(char *str)
 {

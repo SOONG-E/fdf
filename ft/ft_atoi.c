@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:33:34 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 20:56:28 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 21:05:08 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int	ft_atoi(char *str)
 		idx++;
 	}
 	if (!(48 <= str[idx] && str[idx] <= 57))
-			{
-		printf("atoi %c %lld", str[idx], idx);
 		error();
-	}
 	while (48 <= str[idx] && str[idx] <= 57)
 	{
 		ret = ret * 10 + (str[idx] - 48);

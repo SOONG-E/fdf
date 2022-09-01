@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 13:20:04 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 19:32:58 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 21:40:51 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 void	point_to_point(t_coor one, t_coor two, t_mlx *mlx)
 {
 	if (fabs((two.y - one.y) / (two.x - one.x)) > 1)
-		gredient_over(one, two, mlx->mlx, mlx->win);
+		gredient_over(one, two, mlx);
 	else
-		gredient_under(one, two, mlx->mlx, mlx->win);
+		gredient_under(one, two, mlx);
 }
 
 void	drawing_line(t_map *map, t_mlx *mlx)
@@ -41,12 +41,26 @@ void	drawing_line(t_map *map, t_mlx *mlx)
 	}
 }
 
+void	clear_image(t_mlx *mlx)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < mlx->map->height - 1)
+	{
+		j = -1;
+		while (++j < mlx->map->width - 1)
+			put_pixel(mlx, i, j, 0x000000);
+	}
+}
+
 void	drawing(t_mlx *mlx)
 {
-	mlx_clear_window(mlx->mlx, mlx->win);
 	adjust_scale(mlx->map, mlx->coor);
 	rotation(mlx->map, mlx->coor);
 	isometric(mlx->map, mlx->coor);
 	moving_map(mlx->map, mlx->coor);
 	drawing_line(mlx->map, mlx);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.mlx_img, 0, 0);
 }
