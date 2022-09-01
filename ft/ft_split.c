@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:26:19 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/26 11:49:19 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/01 21:03:46 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static int	count_word(char *str, char c)
 	idx = 0;
 	while (str[idx])
 	{
-		while (str[idx] == c && str[idx])
+		while (str[idx] && (str[idx] == c || str[idx] == '\n'))
 			idx++;
 		if (!str[idx])
 			return (count);
 		count++;
-		while (str[idx] != c && str[idx])
+		while (str[idx] && str[idx] != c)
 			idx++;
 	}
 	return (count);
@@ -57,7 +57,7 @@ void	free_child(char **ret, int idx)
 
 static void	find_str(char const *s, char c, int *start, int *end)
 {
-	while (s[*start] == c && s[*start])
+	while ((s[*start] == c || s[*start] == '\n') && s[*start])
 		(*start)++;
 	*end = *start;
 	while (s[*end] != c && s[*end])
