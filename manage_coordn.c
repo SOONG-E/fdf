@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 15:13:51 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 11:33:43 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 12:33:56 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	moving_map(t_map *map, t_coor **coor)
 		map->moving_x = (map->width / 2) - (coor[map->row / 2][map->col / 2].x);
 		map->moving_y = (map->height / 2) - \
 		(coor[map->row / 2][map->col / 2].y);
+		adjust_center(map, coor);
 	}
 	i = -1;
 	while (++i < map->row)
@@ -66,7 +67,7 @@ void	adjust_scale(t_map *map, t_coor **coor)
 	int	j;
 
 	if (map->scale < 0)
-		make_scale(map);
+		make_scale(map, coor);
 	i = -1;
 	while (++i < map->row)
 	{

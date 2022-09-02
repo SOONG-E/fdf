@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:36:10 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 11:33:02 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 12:33:24 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 		return (-1);
 	if (!check_filename(av[1]))
 		return (-1);
-	map = init_map(&map, 1500, 1500);
+	map = init_map(&map, 1500, 1000);
 	parsing_file(av[1], &map);
 	fdf(&map);
 	return (0);

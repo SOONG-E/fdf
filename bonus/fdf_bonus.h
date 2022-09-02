@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:56:39 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 21:30:25 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 12:58:30 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	reinit_coor(t_mlx *mlx);
 int		ft_strlen(char *str);
 int 	count_line(int fd);
 int		check_filename(char *name);
-void	make_scale(t_map *map);
+void	make_scale(t_map *map, t_coor **coor);
 
 void	make_coordn(t_map *map);
 
@@ -97,9 +97,10 @@ void	put_pixel(t_mlx	*mlx, int x, int y, int color);
 
 t_coor	**init_coordn(t_map *map);
 void	rotation(t_map *map, t_coor **coor);
-void	isometric(t_map *map, t_coor **coor);
+void	axonometric(t_map *map, t_coor **coor);
 void	moving_map(t_map *map, t_coor **coor);
 void	adjust_scale(t_map *map, t_coor **coor);
+void	adjust_center(t_map *map, t_coor **coor);
 
 void	gredient_over(t_coor one, t_coor two, t_mlx *mlx);
 void	gredient_under(t_coor one, t_coor two, t_mlx *mlx);

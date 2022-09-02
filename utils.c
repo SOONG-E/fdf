@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 11:34:45 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 12:34:16 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,57 @@ int	check_filename(char *name)
 	return (0);
 }
 
-void	make_scale(t_map *map)
+void	make_scale(t_map *map, t_coor **coor)
 {
-	map->scale = (map->height / map->row) / 3;
-	if (map->scale > (map->width / map->col) / 3)
-		map->scale = (map->width / map->col) / 3;
+	double	max_x;
+	double	max_y;
+	int		i;
+	int		j;
+
+	max_x = 0.0;
+	max_y = 0.0;
+	i = -1;
+	while (++i < map->row)
+	{
+		j = -1;
+		while (++j < map->col)
+		{
+			if (coor[i][j].x > max_x)
+				max_x = coor[i][j].x;
+			if (coor[i][j].y > max_y)
+				max_y = coor[i][j].y;
+		}
+	}
+	map->scale = (map->height / map->row);
+	while ((max_x * map->scale) > map->width
+		|| (max_y * map->scale) > map->height)
+		map->scale -= 0.1;
+	map->scale /= 3;
+}
+
+void	adjust_center(t_map *map, t_coor **coor)
+{
+	double	max_x;
+	double	max_y;
+	int		i;
+	int		j;
+
+	max_x = 0.0;
+	max_y = 0.0;
+	i = -1;
+	while (++i < map->row)
+	{
+		j = -1;
+		while (++j < map->col)
+		{
+			if (coor[i][j].x > max_x)
+				max_x = coor[i][j].x;
+			if (coor[i][j].y > max_y)
+				max_y = coor[i][j].y;
+		}
+	}
+	while ((max_x + map->moving_x) > map->width)
+		map->moving_x -= 50;
+	while ((max_y + map->moving_y) > map->height)
+		map->moving_y -= 50;
 }

@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:23 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 11:32:38 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 12:08:43 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ void	put_pixel(t_mlx	*mlx, int x, int y, int color)
 	char	*pixel;
 
 	if (x >= mlx->map->width || y >= mlx->map->height)
+		return ;
+	if (x < 0 || y < 0)
 		return ;
 	pixel = mlx->img.addr + (y * (mlx->img.line_len) \
 	+ x * ((mlx->img.bpp) / 8));
