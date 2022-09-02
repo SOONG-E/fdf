@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 20:43:01 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 11:39:03 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_strlen(char *str)
 	return (count);
 }
 
-int count_line(int fd)
+int	count_line(int fd)
 {
 	int	count;
 
@@ -44,5 +44,5 @@ void	make_scale(t_map *map)
 {
 	map->scale = (map->height / map->row) / 2;
 	if (map->scale > (map->width / map->col) / 2)
- 		map->scale = (map->width / map->col) / 2;
+		map->scale = (map->width / map->col) / 2;
 }

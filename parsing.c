@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:46:43 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 21:05:27 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 11:34:07 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	*to_color(char **words, int size)
 
 static t_coor	*to_value(char **words, int size)
 {
-	t_coor		*ret;
+	t_coor	*ret;
 	int		idx;
 
 	ret = (t_coor *)ft_calloc(size, sizeof(t_coor));
