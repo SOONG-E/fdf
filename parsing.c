@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:46:43 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 11:34:07 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 18:40:00 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h> //parsing.c
 
 static int	get_color(char *str)
 {
@@ -102,9 +101,13 @@ void	parsing_file(char *file_name, t_map *map)
 	int		fd;
 
 	fd = open(file_name, O_RDONLY);
+	if (fd < 0)
+		error();
 	map->row = count_line(fd);
 	close(fd);
 	fd = open(file_name, O_RDONLY);
+	if (fd < 0)
+		error();
 	spilt_trans(fd, map);
 	close(fd);
 }

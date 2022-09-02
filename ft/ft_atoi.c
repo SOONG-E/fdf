@@ -6,12 +6,11 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:33:34 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 21:05:08 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 18:41:45 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
-#include <stdio.h> //atoi
 
 int	ft_atoi(char *str)
 {

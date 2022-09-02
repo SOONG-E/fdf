@@ -6,14 +6,13 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 16:29:13 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/01 19:10:47 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 18:30:29 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <mlx.h>
 #include <stdlib.h>
-#include <stdio.h> //hooks.c
 
 int	close_window(t_mlx *mlx)
 {

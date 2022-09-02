@@ -6,14 +6,13 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 15:13:51 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 12:58:17 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 18:40:38 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf_bonus.h"
 #include <math.h>
 #include <stdlib.h>
-#include <stdio.h> //manage_coordn.c !!!!!!!!!!
 
 void	rotation(t_map *map, t_coor **coor)
 {

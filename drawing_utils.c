@@ -6,14 +6,13 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:42:23 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 12:08:43 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 18:31:21 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <mlx.h>
 #include <math.h>
-#include <stdio.h>
 
 int	cal_rgb(t_coor coor, t_coor one, t_coor two, char c)
 {

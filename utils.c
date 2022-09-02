@@ -6,12 +6,11 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 12:34:16 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 18:48:18 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h> //utils.c
 
 int	ft_strlen(char *str)
 {
@@ -35,7 +34,7 @@ int	count_line(int fd)
 
 int	check_filename(char *name)
 {
-	if (ft_strnstr(name, ".fdf\0", ft_strlen(name)))
+	if (ft_strnstr(&name[ft_strlen(name) - 4], ".fdf", 4))
 		return (1);
 	return (0);
 }

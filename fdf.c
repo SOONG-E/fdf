@@ -6,13 +6,12 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:36:10 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 12:33:24 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/02 18:30:18 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include "fdf.h"
-#include <stdio.h> //fdf.c 지우기!!!!!!!!!!
 
 void	fdf(t_map *map)
 {
