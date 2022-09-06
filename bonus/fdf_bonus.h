@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:56:39 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/06 15:06:35 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 19:01:56 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ typedef struct s_coor
 	double	x;
 	double	y;
 	double	z;
-	int		color;
 }	t_coor;
 
 typedef struct s_map
@@ -71,7 +70,6 @@ typedef struct s_map
 	double			angle_y;
 	double			angle_z;
 	struct s_coor	**value;
-	int				**color;
 }	t_map;
 
 int		hooks(int key, t_mlx *mlx);
@@ -90,9 +88,9 @@ void	make_coordn(t_map *map);
 
 t_map	init_map(t_map *map, int width, int height);
 void	init_window(void **mlx, void **win);
+void	get_img(t_mlx *mlx);
 
 void	drawing(t_mlx *mlx);
-void	clear_image(t_mlx *mlx);
 void	put_pixel(t_mlx	*mlx, int x, int y, int color);
 
 t_coor	**init_coordn(t_map *map);

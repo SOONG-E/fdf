@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:46:43 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/06 17:21:16 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 19:39:16 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static int	get_color(char *str)
 	while (i > 1 && ret[i] != 'x')
 	{
 		j = 0;
-		while (j < 16 && ret[i] != "0123456789ABCDEF"[j])
+		while (j < 16 && ret[i] != "0123456789ABCDEF"[j]
+			&& ret[i] != "0123456789abcdef"[j])
 			++j;
 		num = num + j * hex;
 		hex *= 16;

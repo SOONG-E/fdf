@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 13:20:04 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 12:06:30 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 18:57:57 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	drawing_line(t_map *map, t_mlx *mlx)
 
 void	drawing(t_mlx *mlx)
 {
-	mlx_clear_window(mlx->mlx, mlx->win);
 	isometric(mlx->map, mlx->coor);
 	adjust_scale(mlx->map, mlx->coor);
 	moving_map(mlx->map, mlx->coor);

@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 15:13:51 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 18:40:38 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 19:11:03 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,6 @@ t_coor	**init_coordn(t_map *map)
 			coor[i][j].x = j;
 			coor[i][j].y = i;
 			coor[i][j].z = map->value[i][j].z;
-			coor[i][j].color = map->color[i][j];
 		}
 	}
 	return (coor);

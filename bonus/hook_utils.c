@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:24:21 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/06 17:25:51 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 18:54:45 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int	close_window(t_mlx *mlx)
 void	change_scale(int key, t_mlx *mlx)
 {
 	if (key == KEY_PLUS)
-		mlx->map->scale += 1;
+		mlx->map->scale *= 1.1;
 	else
-		mlx->map->scale -= 1;
+		mlx->map->scale *= 0.9;
 }
 
 void	reinit_coor(t_mlx *mlx)

@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 13:20:04 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 12:58:35 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 19:13:33 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,10 @@ void	drawing_line(t_map *map, t_mlx *mlx)
 	}
 }
 
-void	clear_image(t_mlx *mlx)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < mlx->map->width)
-	{
-		j = -1;
-		while (++j < (mlx->map->height))
-			put_pixel(mlx, i, j, 0x000000);
-	}
-}
-
 void	drawing(t_mlx *mlx)
 {
-	clear_image(mlx);
+	mlx_destroy_image(mlx->mlx, mlx->img.mlx_img);
+	get_img(mlx);
 	rotation(mlx->map, mlx->coor);
 	axonometric(mlx->map, mlx->coor);
 	adjust_scale(mlx->map, mlx->coor);
