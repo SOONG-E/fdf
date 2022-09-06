@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 18:47:39 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 17:23:02 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,18 @@ int	ft_strlen(char *str)
 
 int	count_line(int fd)
 {
-	int	count;
+	int		count;
+	char	*temp;
 
 	count = 0;
-	while (get_next_line(fd))
+	temp = get_next_line(fd);
+	while (temp)
+	{
 		++count;
+		free(temp);
+		temp = get_next_line(fd);
+	}
+	free(temp);
 	return (count);
 }
 

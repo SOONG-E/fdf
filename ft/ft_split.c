@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 19:26:19 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 11:39:21 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 17:20:52 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	find_str(char const *s, char c, int *start, int *end)
 		(*end)++;
 }
 
-char	**ft_split(char const *s, char c, int *size)
+char	**ft_split(char *s, char c, int *size)
 {
 	char	**ret;
 	int		count;
@@ -88,5 +88,6 @@ char	**ft_split(char const *s, char c, int *size)
 			error();
 		idx++;
 	}
+	free(s);
 	return (ret);
 }
