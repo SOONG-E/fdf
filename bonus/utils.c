@@ -6,11 +6,12 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:10:56 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/06 17:23:02 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 17:25:07 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf_bonus.h"
+#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {

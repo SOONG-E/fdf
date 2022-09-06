@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:56:44 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 12:32:45 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 17:23:46 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_free(char *ret, char *temp);
 
 void	*ft_calloc(int count, int size);
-char	**ft_split(char const *s, char c, int *size);
+char	**ft_split(char *s, char c, int *size);
 char	*ft_strnstr(char *haystack, char *needle, int len);
 char	*ft_strcpy(char *src);
 void	free_child(char **ret, int idx);
