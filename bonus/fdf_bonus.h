@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:56:39 by yujelee           #+#    #+#             */
-/*   Updated: 2022/09/02 12:58:30 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/09/06 15:06:35 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 # define KEY_PRESS			2
 # define DESTROY_NOTIFY		17
 
-#define KEY_ESC		53
-#define KEY_Q		12
-#define KEY_W		13
-#define KEY_E		14
-#define KEY_A		0
-#define KEY_S		1
-#define KEY_D		2
-#define KEY_UP		126
-#define KEY_LEFT	123
-#define KEY_RIGHT	124
-#define KEY_DOWN	125
-#define	KEY_PLUS	24
-#define	KEY_MINUS	27
+# define KEY_ESC		53
+# define KEY_Q		12
+# define KEY_W		13
+# define KEY_E		14
+# define KEY_A		0
+# define KEY_S		1
+# define KEY_D		2
+# define KEY_UP		126
+# define KEY_LEFT	123
+# define KEY_RIGHT	124
+# define KEY_DOWN	125
+# define KEY_PLUS	24
+# define KEY_MINUS	27
 
 typedef struct s_img
 {
@@ -70,7 +70,7 @@ typedef struct s_map
 	double			angle_x;
 	double			angle_y;
 	double			angle_z;
-	struct s_coor 	**value;
+	struct s_coor	**value;
 	int				**color;
 }	t_map;
 
@@ -82,7 +82,7 @@ void	change_scale(int key, t_mlx *mlx);
 void	reinit_coor(t_mlx *mlx);
 
 int		ft_strlen(char *str);
-int 	count_line(int fd);
+int		count_line(int fd);
 int		check_filename(char *name);
 void	make_scale(t_map *map, t_coor **coor);
 
