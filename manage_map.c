@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 20:11:38 by yujelee           #+#    #+#             */
-/*   Updated: 2022/11/02 13:16:00 by yujelee          ###   ########.fr       */
+/*   Updated: 2022/11/02 13:26:10 by yujelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ t_map	init_map(t_map *map, int width, int height)
 
 void	get_img(t_mlx *mlx)
 {
-	mlx->img.mlx_img = mlx_new_image(mlx->mlx, mlx->map->width, mlx->map->height);
+	mlx->img.mlx_img = mlx_new_image(mlx->mlx, mlx->map->width, \
+	mlx->map->height);
 	mlx->img.addr = mlx_get_data_addr(mlx->img.mlx_img, \
 	&(mlx->img.bpp), &(mlx->img.line_len), &(mlx->img.endian));
 }

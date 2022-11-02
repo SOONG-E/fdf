@@ -6,7 +6,7 @@
 #    By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/25 11:14:04 by yujelee           #+#    #+#              #
-#    Updated: 2022/11/02 13:24:27 by yujelee          ###   ########.fr        #
+#    Updated: 2022/11/02 15:53:56 by yujelee          ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,8 @@ SRCS = 	\
 		manage_map.c		\
 		manage_coordn.c		\
 		parsing.c			\
-		drawing.c			\
-		drawing_utils.c		\
+		draw.c			\
+		draw_utils.c		\
 		hooks.c
 
 Q = @

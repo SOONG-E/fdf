@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   drawing.c                                          :+:      :+:    :+:   */
+/*   draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,7 +22,7 @@ void	point_to_point(t_coor one, t_coor two, t_mlx *mlx)
 		gredient_under(one, two, mlx);
 }
 
-void	drawing_line(t_map *map, t_mlx *mlx)
+void	draw_line(t_map *map, t_mlx *mlx)
 {
 	int	i;
 	int	j;
@@ -41,7 +41,7 @@ void	drawing_line(t_map *map, t_mlx *mlx)
 	}
 }
 
-void	drawing(t_mlx *mlx)
+void	draw(t_mlx *mlx)
 {
 	mlx_destroy_image(mlx->mlx, mlx->img.mlx_img);
 	get_img(mlx);
@@ -49,6 +49,6 @@ void	drawing(t_mlx *mlx)
 	isometric(mlx->map, mlx->coor);
 	adjust_scale(mlx->map, mlx->coor);
 	moving_map(mlx->map, mlx->coor);
-	drawing_line(mlx->map, mlx);
+	draw_line(mlx->map, mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.mlx_img, 0, 0);
 }

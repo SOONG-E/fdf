@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:56:44 by yujelee           #+#    #+#             */
-/*   Updated: 2022/11/02 13:13:03 by yujelee          ###   ########.fr       */
+/*   Updated: 2022/11/02 15:53:56 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_map	init_map(t_map *map, int width, int height);
 void	init_window(void **mlx, void **win);
 void	get_img(t_mlx *mlx);
 
-void	drawing(t_mlx *mlx);
+void	draw(t_mlx *mlx);
 void	put_pixel(t_mlx	*mlx, int x, int y, int color);
 
 t_coor	**init_coordn(t_map *map);
