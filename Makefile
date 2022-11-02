@@ -6,12 +6,20 @@
 #    By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/25 11:14:04 by yujelee           #+#    #+#              #
-#    Updated: 2022/11/02 13:16:57 by yujelee          ###   ########.fr        #
+#    Updated: 2022/11/02 13:24:27 by yujelee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
-CPPFLAGS = -Imlx
+.DEFAULT_GOAL = all
+
+RM			= 	rm -rf
+CFLAGS		=	-Wall -Wextra -Werror -MMD -MP 
+CPPFLAGS	= 	-Imlx
+LDFLAGS		=	-Lmlx -framework OpenGL -framework AppKit
+LDLIBS 		=	-lmlx
+
+OUTDIR		=	out/
+
 
 SRCS = 	\
 		ft/ft_atoi.c		\
@@ -37,30 +45,27 @@ endif
 
 NAME = fdf
 
-BONUS_NAME = fdf_bonus
+OBJS		=	$(addprefix $(OUTDIR),$(SRCS:%.c=%.o))
+DEPS		=	$(addprefix $(OUTDIR),$(SRCS:%.c=%.d))
+-include $(DEPS)
 
-OBJS = $(SRCS:.c=.o)
-
-BONUS_OBJS = $(BONUS_SRC:.c=.o)
+$(OUTDIR)%.o : %.c
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
 all : $(NAME)
 
-bonus : $(BONUS_NAME)
-
 $(NAME) : $(OBJS)
-	$Q$(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit $^ -o $@
-
-$(BONUS_NAME) : $(BONUS_OBJS)
-	$Q$(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit $^ -o $@
+	$Q$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $^ $(LDLIBS) -o $@
 
 clean :
-	$Q$(RM) $(OBJS) $(BONUS_OBJS)
+	$Q$(RM) $(OUTDIR)
 
 fclean : clean
-	$Q$(RM) $(NAME) $(BONUS_NAME)
+	$Q$(RM) $(NAME)
 	
 re : 
-	make fclean
-	make all
+	$(MAKE) fclean
+	$(MAKE) all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
