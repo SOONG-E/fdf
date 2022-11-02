@@ -6,45 +6,29 @@
 #    By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/25 11:14:04 by yujelee           #+#    #+#              #
-#    Updated: 2022/10/13 12:54:02 by yujelee          ###   ########seoul.kr   #
+#    Updated: 2022/11/02 13:16:57 by yujelee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS = -Wall -Wextra -Werror
 CPPFLAGS = -Imlx
 
-SRCS = 	control_error.c		\
-		fdf.c				\
+SRCS = 	\
 		ft/ft_atoi.c		\
 		ft/ft_calloc.c		\
 		ft/ft_split.c		\
 		ft/ft_strs.c		\
 		ft/get_next_line.c		\
 		ft/get_next_line_utils.c	\
+		control_error.c		\
+		utils.c				\
+		fdf.c				\
 		manage_map.c		\
 		manage_coordn.c		\
 		parsing.c			\
 		drawing.c			\
 		drawing_utils.c		\
-		utils.c				\
 		hooks.c
-
-BONUS_SRC =	ft/ft_atoi.c		\
-			ft/ft_calloc.c		\
-			ft/ft_split.c		\
-			ft/ft_strs.c		\
-			ft/get_next_line.c		\
-			ft/get_next_line_utils.c	\
- 			bonus/control_error.c		\
-			bonus/fdf_bonus.c			\
-			bonus/manage_map.c		\
-			bonus/manage_coordn.c		\
-			bonus/parsing.c			\
-			bonus/drawing.c			\
-			bonus/drawing_utils.c		\
-			bonus/utils.c				\
-			bonus/hooks.c				\
-			bonus/hook_utils.c
 
 Q = @
 ifdef DEBUG
