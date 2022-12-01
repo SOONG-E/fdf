@@ -42,12 +42,12 @@ int	make_color(t_coor coor, t_coor one, t_coor two)
 
 	if (one.color == two.color)
 		return (one.color);
-	temp = (cal_rgb(coor, one, two, 'r') & 0xff0000);
-	temp += (cal_rgb(coor, one, two, 'g') & 0x00ff00);
-	temp += (cal_rgb(coor, one, two, 'b') & 0x0000ff);
-	// temp = cal_rgb(coor, one, two, 'r') << 16;
-	// temp += cal_rgb(coor, one, two, 'g') << 8;
-	// temp += cal_rgb(coor, one, two, 'b');
+	// temp = (cal_rgb(coor, one, two, 'r') & 0xff0000);
+	// temp += (cal_rgb(coor, one, two, 'g') & 0x00ff00);
+	// temp += (cal_rgb(coor, one, two, 'b') & 0x0000ff);
+	temp = cal_rgb(coor, one, two, 'r') << 16;
+	temp += cal_rgb(coor, one, two, 'g') << 8;
+	temp += cal_rgb(coor, one, two, 'b');
 	return (temp);
 }
 
